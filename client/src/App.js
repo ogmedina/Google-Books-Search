@@ -1,18 +1,24 @@
-import React, { Component } from "react";
-import logo from "./logo.svg";
+import React from "react";
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import Saved from "./pages/Saved";
+import Search from "./pages/Search";
+import Navigation from "./components/Nav/index";
+//import NoMatch from "./pages/NoMatch";
 import "./App.css";
 
 function App() {
   return (
-    <div className="App">
-      <div className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <h2>Welcome to React</h2>
-      </div>
-      <p className="App-intro">
-        To get started, edit <code>src/App.js</code> and save to reload.
-      </p>
-    </div>
+    <Router>
+    <>
+    <Navigation />
+    <Switch>
+      <Route exact path = "/" component ={Search} />
+      <Route exact patch = "/search" component = {Search} />
+      <Route exact path = "/saved" compnent={Saved} />
+      {/* <Route component={ NoMatch } /> */}
+    </Switch>
+    </>
+    </Router>
   );
 }
 
