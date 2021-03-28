@@ -1,6 +1,14 @@
 import React, { useState, useEffect } from "react";
 import API from "../utils/API";
 import Jumbotron from "../components/Jumbotron";
+import { Input, FormBtn } from "../components/Form";
+import Container from "react-bootstrap/Container";
+import { Link } from "react-router-dom";
+import { List, ListItem } from "../components/List";
+import Row from "react-bootstrap/Row"
+import Col from "react-bootstrap/Col"
+import Button from "react-bootstrap/Button"
+
 
 
 function Books() {
@@ -9,30 +17,55 @@ function Books() {
     const [formObject, setFormObject] = useState({})
 
     //Load all books 
-    useEffect(() => {
-        loadBooks()
-    }, [])
+    // useEffect(() => {
+    //     loadBooks()
+    // }, [])
 
     //Load all books from GoogleAPI and set them to books
-    function loadBooks() {
-        API.googleSearch()
-            .then(res =>
-                setBooks(res.data)
-            )
-            .catch(err => console.log(err));
-    };
+    // function loadBooks() {
+    //     API.googleSearch()
+    //         .then(res => {
+    //             setBooks(res.data)
+    //             console.log(books)
+    //             // console.log(res.data)
+
+    //         }
+                
+    //         )
+    //         .catch(err => console.log(err));
+    // };
 
     //function to delete book
-    function deleteBook(id) {
-        API.deleteBook(id)
-        .then(res => loadBooks())
-        .catch(err => console.log(err));
-    }
+    // function deleteBook(id) {
+    //     API.deleteBook(id)
+    //     .then(res => loadBooks())
+    //     .catch(err => console.log(err));
+    // }
 
     function handleFormSubmit(event) {
         event.preventDefault();
-        loadBooks();
-    }
+        API.googleSearch(formObject.searchbook)
+        .then(res => {
+            setBooks(res.data.items)
+            console.log(res.data.items)
+        })
+        .catch(error => {
+            console.log(error.response)
+        })
+    };
+
+    function saveButton(id, title, author, description, image, link) {
+        console.log(id, title, author, description, image, link);
+         API.saveBook({
+            id: id,
+            title: title,
+            authors: author,
+            description: description,
+            image: image,
+            link: link
+        })        
+        .catch(err => console.log(err))
+    };
 
     function handleInputChange(event) {
         const { name, value } = event.target;
@@ -42,11 +75,68 @@ function Books() {
     return (
         <>
         
-        <h1>Test</h1>
+        <Container fluid> 
+            <Jumbotron>
+                <h1>(React) Google Books Search</h1>
+                <h5>Search for and Save Books of Interest</h5>
+            </Jumbotron>
+        <Row className="booksearch">
+            <Col >
+            <h3>Book Search</h3>
+            <br />
+            <h6>Book</h6>
+                <form>
+                <Input
+                    onChange={handleInputChange}
+                    name="searchbook"
+                    placeholder="Name of Book"
+                    />
+                    <FormBtn 
+                    disabled={!(formObject.searchbook)}
+                    onClick={handleFormSubmit}
+                    >Search Book</FormBtn>
+                </form>
+            </Col>
+        </Row>
+        <br />
+        <Row className="results">
+            <Col>
+        {books.length ? ( 
+        <List>
+            {books.map(book => (
+                <ListItem key={book.id}>                    
+                     <h5>{book.volumeInfo.title}</h5>                     
+                      by {book.volumeInfo.authors}
+                      <br />
+                      <br />
+                      <Button className="saveinfo"
+                              onClick={() => saveButton(
+                              book.id, book.volumeInfo.title, book.volumeInfo.authors, book.volumeInfo.description, book.volumeInfo.imageLinks.thumbnail, book.volumeInfo.previewLink)}
+                              variant="primary">Save
+                              </Button>
+                      <Button className="viewinfo" onClick={() => window.location.href=book.volumeInfo.previewLink} target={"_blank"} variant="info">View</Button>
+                      <Row>
+                      <Col>                        
+                      <img src={book.volumeInfo.imageLinks.thumbnail} alt="searchedbook"></img>                      
+                      </Col>
+                      <Col xs={10}>
+                      {book.volumeInfo.description}
+                     </Col>
+                    
+                      </Row>
+                </ListItem>
+
+
+            ))}
+        </List>
+        ) : ( 
+            <h3>No Results to Display</h3>
+        )}
+        </Col>
+        </Row>
+        </Container>
         </>
     )
-
-
 }
 
 export default Books;
