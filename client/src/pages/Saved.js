@@ -34,11 +34,12 @@ function Saved() {
 
     return (
         <>
-        <Container fluid>
-            <Jumbotron>
+        <Jumbotron>
                 <h1>(React) Google Books Search</h1>
                 <h5>Saved List</h5>
             </Jumbotron>
+        <Container fluid>
+            
             <Row className="results">
                 <Col>
                 {books.length ? (
@@ -64,7 +65,7 @@ function Saved() {
                         ))}
                     </List>
                 ): (
-                    <h3>Nothing Saved!</h3>
+                    <h4>Nothing Saved!</h4>
                 )}
                 </Col>
             </Row>

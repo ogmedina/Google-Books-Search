@@ -1,10 +1,34 @@
+.jumbotron {
+  background-color: red;
+}
+
+.booksearchheader{
+  background-color: #E09F3E;
+  
+  margin-bottom: 5px;
+  height: 40px;
+}
+
 .booksearch {
   border-style: solid;
+  background-color: #FFF3B0;
+}
+
+
+.resultsheader {
+  background-color: #E09F3E;
+  
+  margin-bottom: 5px;
+  height: 40px;
 }
 
 .results {
   border-style: solid;
+  background-color: ##FFF3B0;
 }
+
+
+
 
 .list-overflow-container {
   max-height: 545px;

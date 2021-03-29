@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import API from "../utils/API";
 import Jumbotron from "../components/Jumbotron";
 import { Input, FormBtn } from "../components/Form";
@@ -50,14 +50,23 @@ function Books() {
 
     return (
         <>        
-        <Container fluid> 
-            <Jumbotron>
+             
+        <Container> 
+        <Jumbotron>
                 <h1>(React) Google Books Search</h1>
                 <h5>Search for and Save Books of Interest</h5>
             </Jumbotron>
-        <Row className="booksearch">
+       
+        <Container className="booksearch">
+        <Row className="booksearchheader">
+            
             <Col >
-            <h3>Book Search</h3>
+            <h4>Book Search</h4>
+            <br />
+            </Col>
+        </Row>
+        <Row>
+            <Col>
             <br />
             <h6>Book</h6>
                 <form>
@@ -73,8 +82,17 @@ function Books() {
                 </form>
             </Col>
         </Row>
+        </Container>
         <br />
-        <Row className="results">
+        <Container className="results">
+        
+        <Row className="resultsheader">
+            
+                <Col>
+                <h4>Results</h4>
+                </Col>
+            </Row>
+        <Row>
             <Col>
         {books.length ? ( 
         <List>
@@ -103,10 +121,11 @@ function Books() {
             ))}
         </List>
         ) : ( 
-            <h3>No Results to Display</h3>
+            <h5>Search For A Book To Begin!</h5>
         )}
         </Col>
         </Row>
+        </Container>
         </Container>
         </>
     )
