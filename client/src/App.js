@@ -3,7 +3,7 @@ import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import Saved from "./pages/Saved";
 import Search from "./pages/Search";
 import Navigation from "./components/Nav/index";
-//import NoMatch from "./pages/NoMatch";
+import NoMatch from "./pages/NoMatch";
 import "./App.css";
 
 function App() {
@@ -15,7 +15,7 @@ function App() {
       <Route exact path = "/" component ={Search} />
       <Route exact path = "/search" component = {Search} />
       <Route exact path = "/saved" component={Saved} />
-      {/* <Route component={ NoMatch } /> */}
+      <Route exact component={NoMatch} />
     </Switch>
     </>
     </Router>
