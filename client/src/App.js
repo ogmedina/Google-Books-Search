@@ -13,8 +13,8 @@ function App() {
     <Navigation />
     <Switch>
       <Route exact path = "/" component ={Search} />
-      <Route exact patch = "/search" component = {Search} />
-      <Route exact path = "/saved" compnent={Saved} />
+      <Route exact path = "/search" component = {Search} />
+      <Route exact path = "/saved" component={Saved} />
       {/* <Route component={ NoMatch } /> */}
     </Switch>
     </>

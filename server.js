@@ -1,7 +1,9 @@
+//Depedencies for express and mongoose, and requiring the routes.js
 const express = require("express");
-
 const mongoose = require("mongoose");
 const routes = require("./routes");
+
+//Set up express and the port number
 const app = express();
 const PORT = process.env.PORT || 3001;
 

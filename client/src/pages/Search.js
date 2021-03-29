@@ -3,7 +3,6 @@ import API from "../utils/API";
 import Jumbotron from "../components/Jumbotron";
 import { Input, FormBtn } from "../components/Form";
 import Container from "react-bootstrap/Container";
-import { Link } from "react-router-dom";
 import { List, ListItem } from "../components/List";
 import Row from "react-bootstrap/Row"
 import Col from "react-bootstrap/Col"
@@ -12,36 +11,12 @@ import Button from "react-bootstrap/Button"
 
 
 function Books() {
-    //component's inital state
+    //Component's inital state
     const [books, setBooks] = useState([])
     const [formObject, setFormObject] = useState({})
-
-    //Load all books 
-    // useEffect(() => {
-    //     loadBooks()
-    // }, [])
-
-    //Load all books from GoogleAPI and set them to books
-    // function loadBooks() {
-    //     API.googleSearch()
-    //         .then(res => {
-    //             setBooks(res.data)
-    //             console.log(books)
-    //             // console.log(res.data)
-
-    //         }
-                
-    //         )
-    //         .catch(err => console.log(err));
-    // };
-
-    //function to delete book
-    // function deleteBook(id) {
-    //     API.deleteBook(id)
-    //     .then(res => loadBooks())
-    //     .catch(err => console.log(err));
-    // }
-
+    
+    //Function for the form submit button, searches the API through the googleSearch Route and 
+    //takes in the object typed from the form, then saves the response in the setBooks
     function handleFormSubmit(event) {
         event.preventDefault();
         API.googleSearch(formObject.searchbook)
@@ -54,6 +29,7 @@ function Books() {
         })
     };
 
+    //Function for the save button will take in the the data and save to the api route for saveBook
     function saveButton(id, title, author, description, image, link) {
         console.log(id, title, author, description, image, link);
          API.saveBook({
@@ -73,8 +49,7 @@ function Books() {
     };
 
     return (
-        <>
-        
+        <>        
         <Container fluid> 
             <Jumbotron>
                 <h1>(React) Google Books Search</h1>
@@ -125,8 +100,6 @@ function Books() {
                     
                       </Row>
                 </ListItem>
-
-
             ))}
         </List>
         ) : ( 

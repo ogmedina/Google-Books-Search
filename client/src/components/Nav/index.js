@@ -7,10 +7,10 @@ function Navigation() {
     <>
     <Navbar bg="dark" variant="dark">
       {/* Add google font to brand */}
-    <Navbar.Brand href="#home">Google Books</Navbar.Brand>
+    <Navbar.Brand href="/">Google Books</Navbar.Brand>
     <Nav className="mr-auto">
-      <Nav.Link href="#home">Search</Nav.Link>
-      <Nav.Link href="#features">Saved</Nav.Link>      
+      <Nav.Link href="/search">Search</Nav.Link>
+      <Nav.Link href="/saved">Saved</Nav.Link>      
     </Nav>
     </Navbar>
     </>
