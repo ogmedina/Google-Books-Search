@@ -1,34 +1,39 @@
-.jumbotron {
-  background-color: red;
+.nav {
+  background-color: #540B0E;
+  font-family:'Roboto', sans-serif;
 }
 
 .booksearchheader{
   background-color: #E09F3E;
-  
+  padding-top: 5px;
   margin-bottom: 5px;
   height: 40px;
+  font-family:'Roboto', sans-serif;
 }
 
 .booksearch {
   border-style: solid;
   background-color: #FFF3B0;
+  font-family:'Roboto', sans-serif;
 }
 
+body {
+  font-family:'Roboto', sans-serif;
+}
 
 .resultsheader {
   background-color: #E09F3E;
-  
+  font-family:'Roboto', sans-serif;
+  padding-top: 5px;
   margin-bottom: 5px;
   height: 40px;
 }
 
 .results {
   border-style: solid;
-  background-color: ##FFF3B0;
+  background-color: #FFF3B0;
+  font-family:'Roboto', sans-serif;
 }
-
-
-
 
 .list-overflow-container {
   max-height: 545px;

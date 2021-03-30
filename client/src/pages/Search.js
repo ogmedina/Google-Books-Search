@@ -61,7 +61,7 @@ function Books() {
         <Row className="booksearchheader">
             
             <Col >
-            <h4>Book Search</h4>
+            <h4><i className="fas fa-book"></i> Book Search</h4>
             <br />
             </Col>
         </Row>
@@ -89,7 +89,7 @@ function Books() {
         <Row className="resultsheader">
             
                 <Col>
-                <h4>Results</h4>
+                <h4><i className="fas fa-poll"></i> Results</h4>
                 </Col>
             </Row>
         <Row>
@@ -112,7 +112,7 @@ function Books() {
                       <Col>                        
                       <img src={book.volumeInfo.imageLinks.thumbnail} alt="searchedbook"></img>                      
                       </Col>
-                      <Col xs={10}>
+                      <Col xs={8}>
                       {book.volumeInfo.description}
                      </Col>
                     

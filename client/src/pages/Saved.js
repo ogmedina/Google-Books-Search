@@ -52,11 +52,12 @@ function Saved() {
                                 <br />
                             <Button id={book.id} className = "deletebook"
                                 onClick={() => deleteBook(book._id)} variant="danger">DELETE</Button>
+                                <Button className="viewinfo" onClick={() => window.location.href=book.link}variant="info">View</Button>
                             <Row>
                             <Col>
                             <img src={book.image} alt="savedbook"></img>
                             </Col>
-                            <Col xs={10}>
+                            <Col xs={8}>
                             {book.description}
                             </Col>
                             </Row>
