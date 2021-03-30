@@ -25,6 +25,9 @@ npm start
 ```
 ### Hosted
 The app is hosted using Heroku here at this link: [Google Books Search](https://secure-shelf-07614.herokuapp.com/)
+```
+Live Site: https://secure-shelf-07614.herokuapp.com/
+```
 
 ### Screenshots 
 ![googlebooksearch1](https://github.com/ogmedina/Google-Books-Search/blob/main/Assets/Images/googlebooksearch1.jpg)
