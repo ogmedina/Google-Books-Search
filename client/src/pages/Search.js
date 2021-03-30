@@ -21,8 +21,7 @@ function Books() {
         event.preventDefault();
         API.googleSearch(formObject.searchbook)
         .then(res => {
-            setBooks(res.data.items)
-            console.log(res.data.items)
+            setBooks(res.data.items)            
         })
         .catch(error => {
             console.log(error.response)
@@ -30,8 +29,7 @@ function Books() {
     };
 
     //Function for the save button will take in the the data and save to the api route for saveBook
-    function saveButton(id, title, author, description, image, link) {
-        console.log(id, title, author, description, image, link);
+    function saveButton(id, title, author, description, image, link) {        
          API.saveBook({
             id: id,
             title: title,
