@@ -35,13 +35,12 @@ function Saved() {
     return (
         <>
         <Jumbotron>
-                <h1>(React) Google Books Search</h1>
-                <h5>Saved List</h5>
-            </Jumbotron>
-        <Container fluid>
-            
+            <h1>(React) Google Books Search</h1>
+            <h5>Saved List</h5>
+        </Jumbotron>
+        <Container fluid>            
             <Row className="results">
-                <Col>
+            <Col>
                 {books.length ? (
                     <List>
                         {books.map(book => (
@@ -52,7 +51,7 @@ function Saved() {
                                 <br />
                             <Button id={book.id} className = "deletebook"
                                 onClick={() => deleteBook(book._id)} variant="danger">DELETE</Button>
-                                <Button className="viewinfo" onClick={() => window.location.href=book.link}variant="info">View</Button>
+                            <a href={book.link} target="_blank" rel="noopener noreferrer"><Button className="viewinfo" variant="info">View</Button></a>
                             <Row>
                             <Col>
                             <img src={book.image} alt="savedbook"></img>
@@ -61,7 +60,6 @@ function Saved() {
                             {book.description}
                             </Col>
                             </Row>
-
                             </ListItem>
                         ))}
                     </List>

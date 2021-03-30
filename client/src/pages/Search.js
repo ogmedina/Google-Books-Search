@@ -53,13 +53,11 @@ function Books() {
              
         <Container> 
         <Jumbotron>
-                <h1>(React) Google Books Search</h1>
-                <h5>Search for and Save Books of Interest</h5>
-            </Jumbotron>
-       
+            <h1>(React) Google Books Search</h1>
+            <h5>Search for and Save Books of Interest</h5>
+        </Jumbotron>       
         <Container className="booksearch">
         <Row className="booksearchheader">
-            
             <Col >
             <h4><i className="fas fa-book"></i> Book Search</h4>
             <br />
@@ -84,39 +82,36 @@ function Books() {
         </Row>
         </Container>
         <br />
-        <Container className="results">
-        
-        <Row className="resultsheader">
-            
-                <Col>
-                <h4><i className="fas fa-poll"></i> Results</h4>
-                </Col>
-            </Row>
+        <Container className="results">        
+        <Row className="resultsheader">            
+            <Col>
+            <h4><i className="fas fa-poll"></i> Results</h4>
+            </Col>
+        </Row>
         <Row>
             <Col>
         {books.length ? ( 
         <List>
             {books.map(book => (
                 <ListItem key={book.id}>                    
-                     <h5>{book.volumeInfo.title}</h5>                     
-                      by {book.volumeInfo.authors}
-                      <br />
-                      <br />
-                      <Button className="saveinfo"
-                              onClick={() => saveButton(
-                              book.id, book.volumeInfo.title, book.volumeInfo.authors, book.volumeInfo.description, book.volumeInfo.imageLinks.thumbnail, book.volumeInfo.previewLink)}
-                              variant="primary">Save
-                              </Button>
-                      <Button className="viewinfo" onClick={() => window.location.href=book.volumeInfo.previewLink} target={"_blank"} variant="info">View</Button>
-                      <Row>
-                      <Col>                        
-                      <img src={book.volumeInfo.imageLinks.thumbnail} alt="searchedbook"></img>                      
-                      </Col>
-                      <Col xs={8}>
+                    <h5>{book.volumeInfo.title}</h5>                     
+                     by {book.volumeInfo.authors}
+                    <br />
+                    <br />
+                    <Button className="saveinfo"
+                            onClick={() => saveButton(
+                            book.id, book.volumeInfo.title, book.volumeInfo.authors, book.volumeInfo.description, book.volumeInfo.imageLinks.thumbnail, book.volumeInfo.previewLink)}
+                            variant="primary">Save
+                    </Button>
+                    <a href={book.volumeInfo.previewLink} target="_blank" rel="noopener noreferrer"><Button className="viewinfo" variant="info">View</Button></a>
+                    <Row>
+                    <Col>                        
+                        <img src={book.volumeInfo.imageLinks.thumbnail} alt="searchedbook"></img>                      
+                    </Col>
+                    <Col xs={8}>
                       {book.volumeInfo.description}
-                     </Col>
-                    
-                      </Row>
+                    </Col>                    
+                    </Row>
                 </ListItem>
             ))}
         </List>
