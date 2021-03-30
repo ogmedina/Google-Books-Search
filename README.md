@@ -1,5 +1,3 @@
-# Google Books Search MERN
-
 # MERN Google Books Search
 ![GitHub](https://img.shields.io/github/license/ogmedina/google-books-search)
 
@@ -29,8 +27,8 @@ npm start
 The app is hosted using Heroku here at this link: [Google Books Search](https://secure-shelf-07614.herokuapp.com/)
 
 ### Screenshots 
-![googlebooksearch1]()
-![googlebooksearch2]()
+![googlebooksearch1](https://github.com/ogmedina/Google-Books-Search/blob/main/Assets/Images/googlebooksearch1.jpg)
+![googlebooksearch2](https://github.com/ogmedina/Google-Books-Search/blob/main/Assets/Images/googlebooksearch2.jpg)
 
 ### License
 This project is licensed under the MIT License. 
